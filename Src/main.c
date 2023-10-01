@@ -1,21 +1,7 @@
-/* USER CODE BEGIN Header */
-/**
-  ******************************************************************************
-  * @file           : main.c
-  * @brief          : Main program body
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2023 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
-/* USER CODE END Header */
+/*Everyone can use this code for free except for TRINH LE HOANG*/
+
+
+
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 
@@ -159,7 +145,7 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while(1){
-	  	  test_rev_1m();
+	  	  test_rev_1m();   // test max speed rpm
 	  	  //current_tick = __HAL_TIM_GET_COUNTER(&htim1);
 	  	  	  	  	  	  	  	  	  	/*PID CODE*/
 	  	/*  if(flag_10ms == 1){
