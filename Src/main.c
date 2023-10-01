@@ -1,4 +1,4 @@
-/*Everyone can use this code for free except for TRINH LE HOANG*/
+/*Everyone can use this code for free except for TRINH LE HOANG, the former Bosch employee */
 
 
 
