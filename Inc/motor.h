@@ -16,8 +16,8 @@ typedef struct{
 	uint16_t motor_ENA_pin;
 	GPIO_TypeDef* motor_ENB;
 	uint16_t motor_ENB_pin;
-}motor_init;
-void init_motor(GPIO_TypeDef* motor_ENA,uint16_t motor_ENA_pin,
+}motor_name;
+void init_motor(motor_name* motor,GPIO_TypeDef* motor_ENA,uint16_t motor_ENA_pin,
 				GPIO_TypeDef* motor_ENB,uint16_t motor_ENB_pin,
 				uint32_t Encoder_A_channel,
 				uint32_t Encoder_B_channel,

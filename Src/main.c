@@ -44,6 +44,7 @@ uint16_t current_time,pre_time;
 float rev_1m,rev_1s,tick_1s;
 int16_t current_tick = 0,pre_tick = 0,now_tick = 0;
 uint16_t tick_rpm = 0;
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -101,6 +102,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 		flag_1s = 1;
 	}
 }
+motor_name motor;
 /* USER CODE END 0 */
 
 /**
@@ -135,32 +137,32 @@ int main(void)
   MX_TIM2_Init();
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
-  //init_motor(GPIOB,GPIO_PIN_14,GPIOB,GPIO_PIN_15,TIM_CHANNEL_1,TIM_CHANNEL_2,TIM_CHANNEL_1);
-  //init_interrupt(&htim3);
-  HAL_TIM_Encoder_Start(&htim1,TIM_CHANNEL_1 | TIM_CHANNEL_2);
-  HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
-  HAL_TIM_Base_Start_IT(&htim3);
+  init_motor(&motor,GPIOB,GPIO_PIN_14,GPIOB,GPIO_PIN_15,TIM_CHANNEL_1,TIM_CHANNEL_2,TIM_CHANNEL_1);
+  init_interrupt(&htim3);
+  //HAL_TIM_Encoder_Start(&htim1,TIM_CHANNEL_1 | TIM_CHANNEL_2);
+  //HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
+  //HAL_TIM_Base_Start_IT(&htim3);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while(1){
-	  	  test_rev_1m();   // test max speed rpm
+	  	  //test_rev_1m();   // test max speed rpm
 	  	  //current_tick = __HAL_TIM_GET_COUNTER(&htim1);
 	  	  	  	  	  	  	  	  	  	/*PID CODE*/
-	  	/*  if(flag_10ms == 1){
-	    	output_val = calculate_current_speed();
+	  	  if(flag_10ms == 1){
+	    	output_val = calculate_current_speed(&motor);
 			if(flag_start == 1){
-				uk = PID_Calculation(setpoint_val,output_val);
-				control_motor_status(uk);
+				uk = PID_Calculation(&motor,setpoint_val,output_val);
+				control_motor_status(&motor,uk);
 			}
 			if(flag_start == 0){
 				 uk = 0;
 				 output_val = 0;
-				 PID_INIT_PARAM(setpoint_val,kp,ki,kd);
+				 PID_INIT_PARAM(&motor,setpoint_val,kp,ki,kd);
 			}
 			flag_10ms = 0;
-	    }*/
+	    }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
